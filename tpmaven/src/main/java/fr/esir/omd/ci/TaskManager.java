@@ -22,6 +22,12 @@ public class TaskManager {
         logger.info("Added task: {}", task.getTitle());
     }
 
+    /* Ceci est un commentaire pour la méthode removeTask */
+    public void removeTask(Task task) {
+        tasks.remove(task);
+        logger.info("Removed task: {}", task.getTitle());
+    }
+
     /* Ceci est un commentaire pour la méthode getTasks */
     public List<Task> getTasks() {
         logger.debug("Retrieving all tasks, count: {}", tasks.size());
