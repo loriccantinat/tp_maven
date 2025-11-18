@@ -33,5 +33,12 @@ public class TaskManager {
         logger.debug("Retrieving all tasks, count: {}", tasks.size());
         return tasks;
     }
+
+    int variable_morte = 5; //variable non utilisée
+    //méthode non utilisée
+    public void methode_morte(){
+        System.out.println("Ceci est une méthode morte");
+    }
+
 }
 
