@@ -149,7 +149,33 @@
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>3.8.0</version>
       </plugin>
-
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.12</version>
+        <executions>
+          <execution>
+            <id>default-prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+            <configuration>
+              <destFile>target/jacoco.exec</destFile>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <configuration>
+              <dataFile>target/jacoco.exec</dataFile>
+              <outputDirectory>target/jacoco-report</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 
     </plugins>
   </build>
@@ -162,11 +188,43 @@
         <version>3.11.1</version>
       </plugin>
 
+      <!-- Plugin pour le checkstyle
+      Par défault il utilise le checkstyle sun_checks.xml
+      La norme de google est stricte sur l'indentation (2 espaces pour un tab au lieu de 4), les imports (pas de .* 
+      et un ordre précis), exigence de la javadoc, nom de variable strictte 
+      -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>3.6.0</version>
+        <configuration>
+          <configLocation>google_checks.xml</configLocation>
+        </configuration>
       </plugin>
+
+      <!-- Plugin JXR
+      Permet d'avoir le code source de votre projet dans le site généré par Maven.plugin>
+      Donc l'avantage avec checkstyle c'est qu'on peut vérifier le code avant de générer le site.
+      -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>  
+        <version>3.0.0</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <!-- select non-aggregate reports -->
+              <report>report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
 
     </plugins>
   </reporting>
