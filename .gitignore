@@ -1,4 +1,33 @@
-/target/
-.vscode/
+# --- Maven ---
+target/
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+
+# --- Java ---
 *.class
 *.log
+*.ctxt
+.mtj.tmp/
+# Fichiers de crash Java
+hs_err_pid*
+
+# --- IDE : VS Code ---
+.vscode/
+.history/
+*.code-workspace
+bin/
+
+# --- OS (Mac & Windows) ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Archives (optionnel, pour ne pas commiter des zips par erreur) ---
+*.jar
+*.war
+*.zip
+*.tar.gz
+*.rar
