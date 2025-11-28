@@ -71,6 +71,12 @@
 
   </dependencies>
 
+  <scm>
+    <connection>scm:git:https://github.com/loriccantinat/tp_maven.git</connection>
+    <url>https://github.com/loriccantinat/tp_maven</url>
+  </scm>
+
+
   <build>      
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
@@ -177,6 +183,36 @@
         </executions>
       </plugin>
 
+      <!-- Plugin SCM -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-plugin</artifactId>
+        <version>2.1.0</version>
+      </plugin>
+      <!-- Plugin changelog -->
+      <plugin>
+        <groupId>se.bjurr.gitchangelog</groupId>
+        <artifactId>git-changelog-maven-plugin</artifactId>
+        <version>2.2.0</version>
+        <executions>
+          <!-- Template from file // -->
+          <execution>
+            <id>GenerateGitChangelogTemplateFromFile</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>git-changelog</goal>
+            </goals>
+            <configuration>
+              <useIntegrations>true</useIntegrations>
+              <templateFile>src/main/resources/changelog.mustache</templateFile>
+              <readableTagName>-([^-]+?)$</readableTagName>
+              <file>CHANGELOG.md</file>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin> 
+
+
     </plugins>
   </build>
 
@@ -236,6 +272,7 @@
           <minimumTokens>100</minimumTokens>
         </configuration>
       </plugin>
+      
 
 
     </plugins>
