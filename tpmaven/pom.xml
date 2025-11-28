@@ -107,7 +107,7 @@
         <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
+          <version>3.12.1</version>
         </plugin>
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
@@ -230,11 +230,12 @@
         <artifactId>maven-pmd-plugin</artifactId>
         <version>3.26.0</version>
         <configuration>
+          <targetJdk>21</targetJdk>
+          <typeResolution>false</typeResolution>
           <linkXref>true</linkXref>
           <minimumTokens>100</minimumTokens>
         </configuration>
       </plugin>
-
 
 
     </plugins>

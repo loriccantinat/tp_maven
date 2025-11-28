@@ -36,8 +36,39 @@ public class TaskManager {
 
     int variable_morte = 5; //variable non utilisée
     //méthode non utilisée
-    public void methode_morte(){
-        System.out.println("Ceci est une méthode morte");
+    public void methode_morte(int parametre_inutile) {
+        String variableQuiSertARien = "Je ne suis jamais lue";
+        int calculInutile = 5 + 5;
+        
+        if (true) {
+            // Un if qui est toujours vrai, c'est suspect
+            return;
+        }    
+    }
+
+    public void traiterTacheA() {
+        System.out.println("Début du traitement complexe");
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                System.out.println("Pair : " + i);
+            } else {
+                System.out.println("Impair : " + i);
+            }
+        }
+        System.out.println("Fin du traitement");
+    }
+
+    //COPIE EXACTE de traiterTacheA
+    public void traiterTacheB() {
+        System.out.println("Début du traitement complexe");
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                System.out.println("Pair : " + i);
+            } else {
+                System.out.println("Impair : " + i);
+            }
+        }
+        System.out.println("Fin du traitement");
     }
 
 }
