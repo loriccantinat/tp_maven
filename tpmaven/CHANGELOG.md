@@ -3,6 +3,12 @@ Changelog for loriccantinat tp_maven.
 
 ## Unreleased
 ### No issue
+**test nouvelle clé ssh**
+[3d266d7288939c3](https://github.com/loriccantinat/tp_maven/commit/3d266d7288939c3) Loric *2025-11-28 08:09:17*
+**modif fichier pom.xml et ajout changelog.mustache**
+[f04f67751e386db](https://github.com/loriccantinat/tp_maven/commit/f04f67751e386db) Loric *2025-11-28 08:02:57*
+**ajout du changelog avec mustache ect**
+[9a7d2245d1309cf](https://github.com/loriccantinat/tp_maven/commit/9a7d2245d1309cf) Loric *2025-11-28 08:02:52*
 **ajout plugin finit pour PMD et CPD rapports**
 [6b3eabe0c10e5ad](https://github.com/loriccantinat/tp_maven/commit/6b3eabe0c10e5ad) Loric *2025-11-28 07:48:06*
 **ajout du plugin PMD**

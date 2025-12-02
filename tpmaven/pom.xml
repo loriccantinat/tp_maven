@@ -68,6 +68,19 @@
         <version>1.5.12</version>
     </dependency>
 
+    <!-- pour générer le jar executable -->
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.1</version>
+    </dependency>
+
 
   </dependencies>
 
@@ -211,9 +224,55 @@
         </executions>
       </plugin> 
 
+      <!-- Plugin pour générer un jar exécutable avec le classpath -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration> 
+            <archive>
+                <manifest>
+                    <addClasspath>true</addClasspath>
+                    <mainClass>fr.esir.omd.ci.App</mainClass>
+                </manifest>
+            </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-shade-plugin</artifactId>
+      <version>3.5.1</version>
+      <executions>
+          <execution>
+              <phase>package</phase>
+              <goals>
+                  <goal>shade</goal>
+              </goals>
+              <configuration>
+                  <transformers>
+                      <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                          <mainClass>fr.esir.omd.ci.App</mainClass>
+                      </transformer>
+                  </transformers>
+                  <filters>
+                      <filter>
+                          <artifact>*:*</artifact>
+                          <excludes>
+                              <exclude>META-INF/*.SF</exclude>
+                              <exclude>META-INF/*.DSA</exclude>
+                              <exclude>META-INF/*.RSA</exclude>
+                          </excludes>
+                      </filter>
+                  </filters>
+              </configuration>
+          </execution>
+      </executions>
+      </plugin>
+
 
     </plugins>
   </build>
+
 
   <reporting>
     <plugins>
